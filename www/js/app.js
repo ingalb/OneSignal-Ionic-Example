@@ -53,7 +53,7 @@ angular.module('starter', ['ionic'])
     var notificationOpenedCallback = function(jsonData) {
       alert("Notification received:\n" + JSON.stringify(jsonData));
       console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
-      
+
       // firing an event downwards
       $rootScope.$broadcast('pushEvent', jsonData);
     };
@@ -67,7 +67,7 @@ angular.module('starter', ['ionic'])
 
 
 
-.controller('MainCtrl', function($scope, $ionicSideMenuDelegate) {
+.controller('MainCtrl', function($scope, $ionicSideMenuDelegate, $ionicPopup, $rootScope) {
   $scope.attendees = [
     { firstname: 'Nicolas', lastname: 'Cage' },
     { firstname: 'Jean-Claude', lastname: 'Van Damme' },
@@ -78,6 +78,16 @@ angular.module('starter', ['ionic'])
   $scope.toggleLeft = function() {
     $ionicSideMenuDelegate.toggleLeft();
   };
+
+  var myListener = $rootScope.$on('child', function (event, data) {
+      var alertPopup = $ionicPopup.alert({
+       title: 'titulli',
+       template: 'It might taste good'
+     });
+     alertPopup.then(function(res) {
+       console.log('Thank you for not eating my delicious ice cream cone');
+     });
+  });
 })
 
 .controller('CheckinCtrl', function($scope) {
