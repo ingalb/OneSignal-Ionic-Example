@@ -51,7 +51,7 @@ angular.module('starter', ['ionic'])
     // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 
     var notificationOpenedCallback = function(jsonData) {
-      alert("Notification received:\n" + JSON.stringify(jsonData));
+      //alert("Notification received:\n" + JSON.stringify(jsonData));
       console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
 
       // firing an event downwards
@@ -80,7 +80,7 @@ angular.module('starter', ['ionic'])
   };
 
   var myListener = $rootScope.$on('pushEvent', function (event, data) {
-
+      alert("NOTT");
       var alertPopup = $ionicPopup.alert({
        title: 'titulli',
        template: 'It might taste good'
