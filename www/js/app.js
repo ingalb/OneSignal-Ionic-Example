@@ -79,7 +79,8 @@ angular.module('starter', ['ionic'])
     $ionicSideMenuDelegate.toggleLeft();
   };
 
-  var myListener = $rootScope.$on('child', function (event, data) {
+  var myListener = $rootScope.$on('pushEvent', function (event, data) {
+
       var alertPopup = $ionicPopup.alert({
        title: 'titulli',
        template: 'It might taste good'
