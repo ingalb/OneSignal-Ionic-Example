@@ -45,10 +45,28 @@ angular.module('starter', ['ionic'])
 })
 
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
     // Enable to debug issues.
     // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+
+    try{
+        ga_storage._setAccount('UA-2341193-9');
+        ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
+        //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
+        admob.setOptions({
+            publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
+            interstitialAdId: "ca-app-pub-7925487268042880/7097196767",
+            autoShowInterstitial: true
+          });
+        admob.createBannerView();
+        admob.requestInterstitialAd();
+    } catch (e) {
+          alert(e.message);
+    }
+
+
+
 
     var notificationOpenedCallback = function(jsonData) {
       //alert("Notification received:\n" + JSON.stringify(jsonData));
