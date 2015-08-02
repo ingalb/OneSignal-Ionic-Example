@@ -49,18 +49,33 @@ angular.module('starter', ['ionic'])
   $ionicPlatform.ready(function() {
     // Enable to debug issues.
     // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
-
+    var admobid = {};
     try{
         ga_storage._setAccount('UA-2341193-9');
         ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
         //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
-        admob.setOptions({
+
+        admobid = { // for Android
+           banner: 'ca-app-pub-7925487268042880/6770099564',
+           interstitial: 'ca-app-pub-7925487268042880/7097196767'
+         };
+
+        AdMob.createBanner( {
+          adId:admobid.banner,
+          position:AdMob.AD_POSITION.BOTTOM_CENTER,
+          autoShow:true} );
+
+        AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
+        AdMob.showInterstitial();
+
+    /**    admob.setOptions({
             publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
             interstitialAdId: "ca-app-pub-7925487268042880/7097196767",
             autoShowInterstitial: true
           });
         admob.createBannerView();
         admob.requestInterstitialAd();
+    **/
     } catch (e) {
           alert(e.message);
     }
