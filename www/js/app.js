@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'ngCordova.plugins.googleAds'])
+angular.module('starter', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -49,13 +49,13 @@ angular.module('starter', ['ionic', 'ngCordova.plugins.googleAds'])
   $ionicPlatform.ready(function() {
     // Enable to debug issues.
     // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
-    var admobid = {};
+//    var admobid = {};
     try{
         ga_storage._setAccount('UA-2341193-9');
         ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
         //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
 
-        admobid = { // for Android
+  /**      admobid = { // for Android
            banner: 'ca-app-pub-7925487268042880/6770099564',
            interstitial: 'ca-app-pub-7925487268042880/7097196767'
          };
@@ -67,6 +67,8 @@ angular.module('starter', ['ionic', 'ngCordova.plugins.googleAds'])
 
         AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
         AdMob.showInterstitial();
+**/
+
 /**
         admob.setOptions({
             publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
