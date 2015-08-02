@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'ngCordova.plugins.googleAds'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -67,15 +67,15 @@ angular.module('starter', ['ionic'])
 
         AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
         AdMob.showInterstitial();
-
-    /**    admob.setOptions({
+/**
+        admob.setOptions({
             publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
             interstitialAdId: "ca-app-pub-7925487268042880/7097196767",
             autoShowInterstitial: true
           });
         admob.createBannerView();
         admob.requestInterstitialAd();
-    **/
+**/
     } catch (e) {
           alert(e.message);
     }
