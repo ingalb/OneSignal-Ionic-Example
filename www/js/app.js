@@ -130,9 +130,7 @@ angular.module('starter', ['ionic'])
   $rootScope.$on('pushEvent', function (event, data) {
       $scope.data="notification";
       $scope.modal.show();
-    }
-
-  });
+    });
 })
 
 .controller('CheckinCtrl', function($scope) {
