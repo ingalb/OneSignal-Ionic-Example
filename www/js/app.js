@@ -50,9 +50,11 @@ angular.module('starter', ['ionic'])
     // Enable to debug issues.
     // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 //    var admobid = {};
+
+/**
     try{
-        ga_storage._setAccount('UA-2341193-9');
-        ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
+  //      ga_storage._setAccount('UA-2341193-9');
+  //      ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
         //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
 
   /**      admobid = { // for Android
@@ -77,12 +79,12 @@ angular.module('starter', ['ionic'])
           });
         admob.createBannerView();
         admob.requestInterstitialAd();
-**/
+
     } catch (e) {
           alert(e.message);
     }
 
-
+**/
 
 
     var notificationOpenedCallback = function(jsonData) {
@@ -102,7 +104,7 @@ angular.module('starter', ['ionic'])
 
 
 
-.controller('MainCtrl', function($scope, $ionicSideMenuDelegate, $ionicPopup, $rootScope) {
+.controller('MainCtrl', function($scope, $ionicSideMenuDelegate,$ionicModal, $ionicPopup, $rootScope) {
   $scope.attendees = [
     { firstname: 'Nicolas', lastname: 'Cage' },
     { firstname: 'Jean-Claude', lastname: 'Van Damme' },
@@ -114,15 +116,22 @@ angular.module('starter', ['ionic'])
     $ionicSideMenuDelegate.toggleLeft();
   };
 
-  var myListener = $rootScope.$on('pushEvent', function (event, data) {
-      alert("NOTT");
-      var alertPopup = $ionicPopup.alert({
-       title: 'titulli',
-       template: 'It might taste good'
-     });
-     alertPopup.then(function(res) {
-       console.log('Thank you for not eating my delicious ice cream cone');
-     });
+
+  // Load the modal from the given template URL
+  $ionicModal.fromTemplateUrl('modal.html', function($ionicModal) {
+    $scope.modal = $ionicModal;
+  }, {
+    // Use our scope for the scope of the modal to keep it simple
+    scope: $scope,
+    // The animation we want to use for the modal entrance
+    animation: 'slide-in-up'
+  });
+
+  $rootScope.$on('pushEvent', function (event, data) {
+      $scope.data="notification";
+      $scope.modal.show();
+    }
+
   });
 })
 
