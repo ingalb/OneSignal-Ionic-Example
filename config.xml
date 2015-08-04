@@ -6,9 +6,7 @@
         id        = "com.ingalb.vllaznia.app"
         version   = "1.0.0">
         
-     <gap:config-file platform="android" parent="/manifest">
-        <application android:debuggable="true" />
-     </gap:config-file>
+
 
     <name>Vllaznia App</name>
 
