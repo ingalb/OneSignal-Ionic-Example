@@ -137,16 +137,19 @@
     </script>
 
     <script id="modal.html" type="text/ng-template">
-    <div class="modal">
-      <header class="bar bar-header bar-positive">
-        <h1 class="title">Sample Modal</h1>
-      </header>
-      <ion-content has-header="true" padding="true">
-        {{mesazhi}}
-      </ion-content>
-    </div>
+      <div class="modal">
+        <header class="bar bar-header bar-positive">
+          <h1 class="title">{{titulli}}</h1>
+          <div class="button button-clear" ng-click="CloseNotification()"><span class="icon ion-close"></span></div>
+        </header>
+        <ion-content class="padding" has-header="true">
+          <div has-header="true">
+            <p>{{teksti}}</p>
+            <h1>OK</h1>
+          </div>
+        </ion-content>
+      </div>
     </script>
-
 
   </body>
 </html>
