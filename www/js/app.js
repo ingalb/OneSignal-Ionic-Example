@@ -104,7 +104,7 @@ angular.module('starter', ['ionic'])
 
 
 
-.controller('MainCtrl', function($scope, $ionicSideMenuDelegate,$ionicModal, $ionicPopup, $rootScope) {
+.controller('MainCtrl', function($scope, $ionicSideMenuDelegate, $ionicModal, $ionicPopup, $rootScope) {
   $scope.attendees = [
     { firstname: 'Nicolas', lastname: 'Cage' },
     { firstname: 'Jean-Claude', lastname: 'Van Damme' },
@@ -116,8 +116,11 @@ angular.module('starter', ['ionic'])
     $ionicSideMenuDelegate.toggleLeft();
   };
 
+  $scope.CloseNotification = function() {
+    $scope.modal.hide();
+    notifica();
+  };
 
-  // Load the modal from the given template URL
   $ionicModal.fromTemplateUrl('modal.html', function($ionicModal) {
     $scope.modal = $ionicModal;
   }, {
@@ -127,10 +130,13 @@ angular.module('starter', ['ionic'])
     animation: 'slide-in-up'
   });
 
-  $rootScope.$on('pushEvent', function (event, data) {
-      $scope.data="notification";
-      $scope.modal.show();
-    });
+  var notifica = $rootScope.$on('pushEvent', function(event,message){
+  
+       $scope.titulli="Push Notification";
+       $scope.teksti=message.message;
+       $scope.modal.show();    
+  });
+  
 })
 
 .controller('CheckinCtrl', function($scope) {
