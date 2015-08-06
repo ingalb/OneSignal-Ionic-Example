@@ -52,23 +52,18 @@ angular.module('starter', ['ionic'])
 //    var admobid = {};
 
    try{
-      var gaPlugin;
-        
-      gaPlugin = window.plugins.gaPlugin;
-        
-        
-      var nativePluginResultHandler = function(result) {
-				alert('nativePluginResultHandler - '+result);
-				console.log('nativePluginResultHandler: '+result);
-			 }
-        
-			var nativePluginErrorHandler = function(error) {
-				alert('nativePluginErrorHandler - '+error);
-				console.log('nativePluginErrorHandler: '+error);
-			}
-        
-      gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-2341193-8", 10);
-       
+   	
+   	var successGA = function(success){
+   		alert("OK");
+   	}
+   	
+   	var failGA = function(success){
+   		alert("Error");
+   	}
+     
+     // gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-2341193-8", 10);
+      analytics.startTrackerWithId("UA-2341193-8", successGA, failGA);
+      
       admob.setOptions({
             publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
             interstitialAdId: "ca-app-pub-7925487268042880/7097196767",
