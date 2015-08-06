@@ -55,7 +55,7 @@ angular.module('starter', ['ionic'])
         admob.setOptions({
             publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
             interstitialAdId: "ca-app-pub-7925487268042880/7097196767",
-            autoShowInterstitial: true
+            autoShowInterstitial: false
           });
 
         admob.createBannerView();
@@ -145,7 +145,7 @@ angular.module('starter', ['ionic'])
   });
 
   var notifica = $rootScope.$on('pushEvent', function(event,message){
-       alert("Notification received:\n" + JSON.stringify(jsonData));
+       alert("Notification received:\n" + JSON.stringify(message));
        $scope.titulli="Push Notification";
        $scope.teksti=message.message;
        $scope.modal.show();    
