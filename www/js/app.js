@@ -62,8 +62,8 @@ angular.module('starter', ['ionic'])
    	}
      
      // gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-2341193-8", 10);
-      analytics.startTrackerWithId("UA-2341193-8", successGA, failGA);
-      
+      //analytics.startTrackerWithId("UA-2341193-8", successGA, failGA);
+      analytics.startTrackerWithId("UA-2341193-8");
       admob.setOptions({
             publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
             interstitialAdId: "ca-app-pub-7925487268042880/7097196767",
@@ -137,7 +137,7 @@ angular.module('starter', ['ionic'])
     { firstname: 'Keanu', lastname: 'Reeves' },
     { firstname: 'Steven', lastname: 'Seagal' }
   ];
-
+  analytics.trackView("Awesome Controller");
   $scope.toggleLeft = function() {
     $ionicSideMenuDelegate.toggleLeft();
   };
