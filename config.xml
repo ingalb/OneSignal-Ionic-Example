@@ -58,7 +58,7 @@
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
 
-    <gap:plugin name="com.onesignal.plugins.onesignal" />
+    <gap:plugin name="onesignal-cordova-plugin-pgb-compat" source="npm" />
     <gap:plugin name="com.admob.google" source="plugins.cordova.io" version="2.0.14"/>
 
 
