@@ -51,6 +51,20 @@ angular.module('starter', ['ionic'])
     // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 //    var admobid = {};
 
+   try{
+        admob.setOptions({
+            publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
+            interstitialAdId: "ca-app-pub-7925487268042880/7097196767",
+            autoShowInterstitial: true
+          });
+
+        admob.createBannerView();
+        admob.requestInterstitialAd();
+
+    } catch (e) {
+          alert(e.message);
+    }
+
 /**
     try{
   //      ga_storage._setAccount('UA-2341193-9');
