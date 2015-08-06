@@ -145,7 +145,7 @@ angular.module('starter', ['ionic'])
   });
 
   var notifica = $rootScope.$on('pushEvent', function(event,message){
-  
+       alert("Notification received:\n" + JSON.stringify(jsonData));
        $scope.titulli="Push Notification";
        $scope.teksti=message.message;
        $scope.modal.show();    
