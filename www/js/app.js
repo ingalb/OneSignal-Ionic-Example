@@ -132,7 +132,7 @@ angular.module('starter', ['ionic'])
 
   $scope.CloseNotification = function() {
     $scope.modal.hide();
-    notifica();
+    //notifica();
   };
 
   $ionicModal.fromTemplateUrl('modal.html', function($ionicModal) {
